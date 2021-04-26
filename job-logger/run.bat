@@ -1,0 +1,1 @@
+java -jar build\libs\job-logger-0.1.0.jar

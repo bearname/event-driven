@@ -1,0 +1,1 @@
+java -jar build\libs\text-rank-calc-0.1.0.jar

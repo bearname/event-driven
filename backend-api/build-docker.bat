@@ -1,0 +1,1 @@
+gradlew.bat build && docker build -t mikhailmi/ds-backend-api:%1 .
