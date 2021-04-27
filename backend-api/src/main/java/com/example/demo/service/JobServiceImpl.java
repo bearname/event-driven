@@ -50,10 +50,19 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Float getProcessingResult(final String jobId) {
-        final String s = jedis.get(jobId + "calc");
-        if (s == null) {
-            return null;
+       String rank = jedis.get(jobId + "calc");
+        for (int i = 0; i < 6; i++) {
+            if (rank != null) {
+                return Float.parseFloat(rank);
+            }
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            rank = jedis.get(jobId + "calc");
         }
-        return Float.parseFloat(s);
+
+        return null;
     }
 }
